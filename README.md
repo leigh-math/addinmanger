@@ -18,13 +18,11 @@ The package can be installed via `devtools`
 Running addins
 --------------
 
-After installing the package, the *Addins* menu toolbar will be populated with the new, exported addins. This addin is called **Addin Manager**.
-
-When you lauch the addin, a DT table will be launched:
+After installing the package, the *Addins* menu toolbar will be populated with a new addin called **Addin Manager**. When you lauch this addin, a DT table will be launched:
 
 ![Screenshot](https://raw.github.com/csgillespie/addinmanger/master/images/screenshot.png)
 
-The highlighted addins, `shinyjs` and `ggThemeAssit` have been already installed.
+In the screenshot above, the highlighted addins, `shinyjs` and `ggThemeAssit`, indicate that this addins have already installed.
 
 When you click **Done**
 
@@ -44,13 +42,8 @@ Just fork and alter the [addin file](https://github.com/csgillespie/addinmanger/
 
 The initial list of addins was obtain from [daattali](https://github.com/daattali/rstudio-addins) repo.
 
-Current list of Addins
+Current List of Addins
 ----------------------
-
-``` r
-dd = read.csv("inst/extdata/raddins.csv")
-knitr::kable(dd)
-```
 
 | Name                    | Description                                                                    | Package                            |
 |:------------------------|:-------------------------------------------------------------------------------|:-----------------------------------|
