@@ -1,92 +1,74 @@
-# RStudio addins manager
-[![Build Status](https://travis-ci.org/csgillespie/addinmanger.svg?branch=master)](https://travis-ci.org/csgillespie/addinmanger)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/addinmanger)](https://cran.r-project.org/package=addinmanger)
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+RStudio addins manager
+======================
 
-RStudio addins let you execute a bit of R code or a Shiny app through the RStudio IDE,
-either via the Addins dropdown menu or with a keyboard shortcut. 
-This package is an RStudio addin for managing **other** addins. To run these addins, you need the
-latest version of [RStudio](https://www.rstudio.com/). 
+[![Build Status](https://travis-ci.org/csgillespie/addinmanger.svg?branch=master)](https://travis-ci.org/csgillespie/addinmanger) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/addinmanger)](https://cran.r-project.org/package=addinmanger)
 
-## Installation
+RStudio addins let you execute a bit of R code or a Shiny app through the RStudio IDE, either via the Addins dropdown menu or with a keyboard shortcut. This package is an RStudio addin for managing **other** addins. To run these addins, you need the latest version of [RStudio](https://www.rstudio.com/).
+
+Installation
+------------
 
 The package can be installed via `devtools`
 
-```
-## Need the latest version of DT as well
-devtools::install_github('rstudio/DT')
-devtools::install_github("csgillespie/addinmanger")
-```
+    ## Need the latest version of DT as well
+    devtools::install_github('rstudio/DT')
+    devtools::install_github("csgillespie/addinmanger")
 
+Running addins
+--------------
 
-## Running addins
-
-After installing the package, the _Addins_ menu toolbar will be populated with the 
-new, exported addins. This addin is called __Addin Manager__.
+After installing the package, the *Addins* menu toolbar will be populated with the new, exported addins. This addin is called **Addin Manager**.
 
 When you lauch the addin, a DT table will be launched:
 
-![alt text](https://raw.github.com/csgillespie/addinmanger/master/images/screenshot.png)
+![Screenshot](https://raw.github.com/csgillespie/addinmanger/master/images/screenshot.png)
 
-The highlighted addins are that have been already installed.
+The highlighted addins, `shinyjs` and `ggThemeAssit` have been already installed.
 
 When you click **Done**
 
- * Highlighted addins will be installed.
- * Un-highlighted addins will be removed.
+-   Highlighted addins will be installed.
+-   Un-highlighted addins will be removed.
 
+Simple!
 
+Including your addin
+--------------------
 
+Just fork and alter the [addin file](https://github.com/csgillespie/addinmanger/tree/master/inst/extdata) which is located in the `inst/extdata` directory. This file is a csv file with three columns:
 
+-   addin Name/title
+-   Brief Description
+-   Package. If the package is only on github, use name/repo.
 
+The initial list of addins was obtain from [daattali](https://github.com/daattali/rstudio-addins) repo.
 
+Current list of Addins
+----------------------
 
-## Using the package
-
-To use this package, you will need a [data API](https://www.typeform.com/help/data-api/)
-key. With this key in position, you can then list your available forms
-
-```
-api = "XXXXX"
-typeforms = get_all_typeforms(api)
-```
-
-If you don't pass your `api` key as an argument, it will attempt to read the variable
-`Sys.getenv("typeform_api")`.
-
-You can download data from a particular typeform via
-```
-## uid can be obtained from the typeforms data set 
-## above
-get_results(uid, api)
+``` r
+dd = read.csv("inst/extdata/raddins.csv")
+knitr::kable(dd)
 ```
 
-There are a number of options for downloading the data. For example
+| Name                    | Description                                                                    | Package                            |
+|:------------------------|:-------------------------------------------------------------------------------|:-----------------------------------|
+| Colour picker           | Lets you easily select colours                                                 | shinyjs                            |
+| ggplot2 Marginal Plots  | Add marginal plots to ggplot2                                                  | ggExtra                            |
+| ggplot Theme Assist     | Customize your ggplot theme                                                    | ggThemeAssist                      |
+| Schedule Rscripts       | Easily scheduling Rscripts                                                     | jwijffels/taskscheduleR            |
+| Assign default values   | Set function arguments in selection to their default values                    | jennybc/jadd                       |
+| Wrap Rmd                | Wrap selected R Markdown text but don't insert lines breaks into inline R code | tjmahr/WrapRmd                     |
+| Tidy Data               | Interactively build tidyr function call (gather)                               | MangoTheCat/tidyshiny              |
+| Lattice Plotting        | Interactively build plots using the `lattice` system                           | homerhanumat/addinplots            |
+| Copy Frame to Clipboard | Copy a `data.frame` to the clipboard                                           | BAAQMD/copydat                     |
+| Render Rmd in Console   | Render an R Markdown document in the global environment                        | jeffjjohnston/RStudioConsoleRender |
+| Document This           | Auto-generate Roxygen skeletons for functions and data                         | mdlincoln/docthis                  |
+| Hist Add-In             | Interactively create histograms with ggplot2 and obtain the R Code             | Stan125/limoaddin                  |
 
-```
-## Only completed forms
-get_results(uid, api, completed=TRUE)
-## Results since the 1st Jan
-get_results(uid, api, since=as.Date("2016-01-01"))
-```
+Other information
+-----------------
 
-See the `?get_results` help page for other options.
-
-## Example: Multiple Filters / Order
-
-Imagine we only want to fetch only the last 10 completed responses.
-
-  * We only want completed results, so we add the parameter `completed=TRUE`.
-  * The results need to be ordered by newest results first, so we add the parameter `order_by="date_submit_desc"`
-  * We only want 10 results maximum, so we add the parameter `limit=10`
-  
-This gives the function call
-
-```
-get_results(uid, api, completed=TRUE, order_by="date_submit_desc", limit=10)
-```
-
-## Other information
-
- * If you have any suggestions or find bugs, please use the github [issue tracker](https://github.com/csgillespie/typeform/issues).
- * Feel free to submit pull requests.
- * I intend to submit the package to CRAN within the next week or so.
+-   If you have any suggestions or find bugs, please use the github [issue tracker](https://github.com/csgillespie/addmanger/issues).
+-   Feel free to submit pull requests.

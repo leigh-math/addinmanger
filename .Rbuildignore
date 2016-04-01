@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 .travis.yml
 images
+^README\.Rmd$
+^README-.*\.png$
