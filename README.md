@@ -2,7 +2,7 @@
 RStudio addins manager
 ======================
 
-[![Build Status](https://travis-ci.org/csgillespie/addinmanger.svg?branch=master)](https://travis-ci.org/csgillespie/addinmanger) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/addinmanger)](https://cran.r-project.org/package=addinmanger)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/addinmanger)](https://cran.r-project.org/package=addinmanger)
 
 RStudio addins let you execute a bit of R code or a Shiny app through the RStudio IDE, either via the Addins dropdown menu or with a keyboard shortcut. This package is an RStudio addin for managing **other** addins. To run these addins, you need the latest version of [RStudio](https://www.rstudio.com/).
 
