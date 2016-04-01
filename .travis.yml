@@ -4,7 +4,7 @@ cache: packages
 r:
   - release
 
-github_packages:
+r_github_packages:
   - rstudio/DT
 
 notifications:
