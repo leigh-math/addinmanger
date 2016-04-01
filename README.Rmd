@@ -33,7 +33,6 @@ devtools::install_github('rstudio/DT')
 devtools::install_github("csgillespie/addinmanger")
 ```
 
-
 ## Running addins
 
 After installing the package, the _Addins_ menu toolbar will be populated with a
@@ -74,3 +73,4 @@ knitr::kable(dd)
 
  * If you have any suggestions or find bugs, please use the github [issue tracker](https://github.com/csgillespie/addmanger/issues).
  * Feel free to submit pull requests.
+ * TODO: Make the package name a url in the table.

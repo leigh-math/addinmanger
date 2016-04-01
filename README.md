@@ -65,3 +65,4 @@ Other information
 
 -   If you have any suggestions or find bugs, please use the github [issue tracker](https://github.com/csgillespie/addmanger/issues).
 -   Feel free to submit pull requests.
+-   TODO: Make the package name a url in the table.
